@@ -8,10 +8,10 @@ app = Flask(__name__)
 CORS(app)
 # My SQL Instance configurations
 # Change these details to match your instance configurations
-app.config['MYSQL_USER'] = 'A'
-app.config['MYSQL_PASSWORD'] = 'B'
-app.config['MYSQL_DB'] = 'student'
-app.config['MYSQL_HOST'] = 'db.mydomain.ie'
+app.config['MYSQL_USER'] = 'Gonzo'
+app.config['MYSQL_PASSWORD'] = 'Thisislab5'
+app.config['MYSQL_DB'] = 'c20703429'
+app.config['MYSQL_HOST'] = 'gonzodb.database.windows.net:1433'
 mysql.init_app(app)
 
 @app.route("/add") #Add Student
