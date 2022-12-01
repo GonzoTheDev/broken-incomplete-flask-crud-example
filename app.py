@@ -31,6 +31,24 @@ def add():
 
   return result
 
+
+@app.route("/update") #Update Student
+def update():
+  id = request.args.get('id')
+  name = request.args.get('name')
+  email = request.args.get('email')
+  cur = mysql.connection.cursor() #create a connection to the SQL instance
+  s='''UPDATE students SET studentName='{}', email='{}' WHERE studentID = '{}';'''.format(name,email,id) # kludge - use stored proc or params
+  cur.execute(s)
+  result = '{"Result":"Failure1"}'
+  try:
+    mysql.connection.commit();
+    result = '{"Result":"Success"}' 
+  except Exception as e:
+    result = '{"Result":"Failure2"}'
+
+  return result
+
 @app.route("/delete") #Delete Student
 def delete():
   id = request.args.get('studentid')
